@@ -571,17 +571,7 @@
     </div>
 </section>
 
-<section class="cid-rWI6kHp0zo" id="image1-2i">
 
-
-
-    <figure class="mbr-figure container">
-        <div class="image-block" style="width: 78%;">
-            <img src="assets/images/img-7938-1022x466.png" width="1400" alt="Mobirise" title="">
-
-        </div>
-    </figure>
-</section>
 
 <section class="header5 cid-rZo7zgpzh4" id="header5-2s">
 
@@ -591,10 +581,90 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="mbr-white col-md-10">
-                <h1 class="mbr-section-title align-center pb-3 mbr-fonts-style display-1">
-                    嵌入echarts</h1>
-
-
+              <body style="height: 100%; margin: 0">
+                  <div id="container" style="height: 400px"></div>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+                  <script type="text/javascript">
+           var dom = document.getElementById("container");
+           var myChart = echarts.init(dom);
+           var app = {};
+           option = null;
+           option = {
+               title: {
+                   text: '公开接受社会捐助的医院统计',
+                   subtext: '医院数量/家'
+               },
+               tooltip: {
+                   trigger: 'axis'
+               },
+               legend: {
+                   data: ['湖北地区', '非湖北地区']
+               },
+               toolbox: {
+                   show: true,
+                   feature: {
+                       dataView: {show: true, readOnly: false},
+                       magicType: {show: true, type: ['line', 'bar']},
+                       restore: {show: true},
+                       saveAsImage: {show: true}
+                   }
+               },
+               calculable: true,
+               xAxis: [
+                   {
+                       type: 'category',
+                       data: ['1月23日', '1月24日', '1月25日', '1月26日', '1月27日', '1月28日', '1月29日', '1月30日', '1月31日', '2月1日', '2月2日', '2月3日', '2月4日', '2月5日', '2月6日', '2月7日']
+                   }
+               ],
+               yAxis: [
+                   {
+                       type: 'value'
+                   }
+               ],
+               series: [
+                   {
+                       name: '湖北地区',
+                       type: 'bar',
+                       data: [7, 23, 49, 14, 5, 7, 4, 0, 2, 3, 2, 2, 0, 0, 0, 0],
+                       markPoint: {
+                           data: [
+                               {type: 'max', name: '最大值'}
+                           ]
+                       },
+                       markLine: {
+                           data: [
+                               {type: 'average', name: '平均值'}
+                           ]
+                       }
+                   },
+                   {
+                       name: '非湖北地区',
+                       type: 'bar',
+                       data: [0, 1, 4, 17, 54, 38, 44, 23, 16, 15, 11, 6, 5, 4, 1, 1],
+                       markPoint: {
+                           data: [
+                               {type: 'max', name: '最大值'}
+                           ]
+                       },
+                       markLine: {
+                           data: [
+                               {type: 'average', name: '平均值'}
+                           ]
+                       }
+                   }
+               ]
+           };
+           ;
+           if (option && typeof option === "object") {
+               myChart.setOption(option, true);
+           }
+                  </script>
             </div>
         </div>
     </div>
